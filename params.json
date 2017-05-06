@@ -1,6 +1,0 @@
-{
-  "name": "Diary",
-  "tagline": "------------------------",
-  "body": "# (Object)对象的深度克隆\r\n## 第一次看到深度克隆，不知道它要做什么.\r\n\r\n    var a = 100;\r\n    var b = a;\r\n    var c = b - 1;\r\n    console.log(a); //输出100，a还是a\r\n    console.log(c); //99\r\n    var x = {a:1,b:2};\r\n    var y = x;\r\n    delete y.a;\r\n    var c = y;\r\n    console.log(x); //{b:2},不存在承接的中间量，他们的指向是同一个对象（这个时候，想要不改变x的情况下，还要得到x的所有属性进行操作并生成新的对象，就要用到--深度克隆）\r\n    console.log(c); //{b:2}\r\n## ES5实现深度克隆\r\n    var cloner = function(ob){\r\n      var str, newob = ob.constructor === Array ? [] : {};\r\n      if(typeof ob !== 'object'){\r\n          return;\r\n      } else if(window.JSON){\r\n        str = JSON.stringify(ob);\r\n        newob = JSON.parse(str);\r\n      } else {\r\n          for(var i in ob){\r\n              newob[i] = typeof ob[i] === 'object' ? \r\n              cloner(ob[i]) : ob[i]; \r\n          }\r\n      }\r\n      return newob;\r\n    }\r\n## ES6实现克隆\r\n    function clone(origin) {\r\n      return Object.assign({}, origin);\r\n    }\r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
