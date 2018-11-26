@@ -1,17 +1,3 @@
-# (Object)对象的深度克隆
-## 第一次看到深度克隆，不知道它要做什么.
-
-    var a = 100;
-    var b = a;
-    var c = b - 1;
-    console.log(a); //输出100，a还是a
-    console.log(c); //99
-    var x = {a:1,b:2};
-    var y = x;
-    delete y.a;
-    var c = y;
-    console.log(x); //{b:2},不存在承接的中间量，他们的指向是同一个对象（这个时候，想要不改变x的情况下，还要得到x的所有属性进行操作并生成新的对象，就要用到--深度克隆）
-    console.log(c); //{b:2}
 ## ES5实现深度克隆
     function isArray(source) {
     return Object.prototype.toString.call(source) === '[object Array]'
