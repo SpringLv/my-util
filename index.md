@@ -1,4 +1,4 @@
-## ES5实现深度克隆
+## 深拷贝
     function isArray(source) {
     return Object.prototype.toString.call(source) === '[object Array]'
     }
@@ -40,13 +40,6 @@
 
         return cp
     }
-## ES6实现克隆
-
-``````
-    function clone(origin) {
-      return Object.assign({}, origin);
-    }
-``````
 ## 快速排序
 ``````
 function quickSort(arr, left, right) {
